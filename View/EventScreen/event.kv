@@ -1,0 +1,49 @@
+<EventScreenView>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        size:root.width,root.height
+        MDBoxLayout:
+            # size:root.width,1*root.height/5
+            pos_hint:{'center_x':.5,'center_y':.5,'top':.5,}
+            size_hint: None,None
+            MDTextField:
+                id:title
+                hint_text:'Title'
+                multiline:False
+                size_hint: .5,.7
+                # pos_hint:{'center_x':.5,'center_y':.7,}
+        MDBoxLayout:
+            pos_hint:{'center_x':.95,'center_y':.8,}
+            # size:root.width,2*root.height/5
+            # pos_hint:{'center_x':1,'center_y':.25,'top':.5,}
+            MDIconButton:
+                pos_hint:{'center_x':1,'center_y':.5,}
+                # size_hint: .5,.7
+                icon: "calendar"
+                on_release:root.show_datepicker()
+        MDBoxLayout:
+            size_hint:.5,.3
+            pos_hint:{'center_x':.5,'center_y':.1,'top':.5}
+            canvas.before:
+                Color:
+                    rgba: 234/255, 247/255, 115/255,1
+                Line:
+                    width: 1
+                    rectangle: self.x, self.y, self.width, self.height
+            MDTextField:
+                id:describe
+                size_hint: .5,None
+                hint_text:'Description'
+                pos_hint:{'center_x':.8,'center_y':.85}
+            
+        MDIconButton:
+            pos_hint: {"center_x": .9 ,'bottom':.9,"top":.15}
+            # size_hint: .5,.7
+            icon: "content-save"
+            theme_icon_color: "Custom"
+            icon_color: "#74b6f7"
+            on_release:root.save_event()
+        
+
+
+

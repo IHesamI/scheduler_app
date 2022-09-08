@@ -1,0 +1,39 @@
+<Event@Widget>
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 0.5
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    # title:title
+    # date:date
+    # describe:describe
+    MDRelativeLayout:
+        canvas:
+            Color:
+                rgba: 1, 0, 0, 0.5
+
+
+<MainScreenView>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        size: root.width,root.height
+        MDTopAppBar:
+            id:toolbar
+            title: "Title"
+            icon: "git"
+            # type: "bottom"
+            right_action_items: [["dots-vertical", lambda x: root.menu.open()]]
+            on_action_button: app.callback(self.icon)
+
+        MDRelativeLayout:
+            id:relativelayout
+            MDIconButton:
+                icon: "plus"
+                pos_hint: {"center_x": .9 ,'bottom':.9,"top":.15}
+                md_bg_color:'#7066fc'
+                on_release:app.manager_screen.switch_screen('event')
+
+
+        Event:
+            id:event
