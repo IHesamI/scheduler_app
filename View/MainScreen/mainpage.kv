@@ -3,15 +3,11 @@
 
 <Event>
     size_hint: 1,None
-    # canvas:
-    #     Color:
-    #         # rgba:  get_color_from_hex('#fff2f7')
-    #         rgba:  1,0,0,1
-    #     Rectangle:
-    #         pos:self.pos
-    #         size:self.size
-    # markup:True
-    text:
+    canvas:
+        Color:
+            rgba:  get_color_from_hex('#fff2f7')
+            # rgba:  1,0,0,1
+    markup:True
     # radius: [25, 0, 0, 0]
 
 
@@ -31,11 +27,13 @@
         MDScrollView:
             id:scrollview
             MDList:
-                # canvas:
-                #     Color:
-                #         rgba:0,0,0,1
-                #     Rectangle:
-                #         pos:self.pos
-                #         size:self.size
-                # orientation:'vertical'
                 id:list
+        MDIconButton:
+            icon:'plus'
+            theme_icon_color: "Custom"
+            pos_hint:{'center_x':.9,'center_y':1}
+            # icon_color: app.theme_cls.primary_color
+            md_bg_color: app.theme_cls.primary_color
+            index:10
+            on_release:
+                app.manager_screen.switch_screen('event')

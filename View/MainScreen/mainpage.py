@@ -36,13 +36,12 @@ class MainScreenView(Screen):
             caller=self.ids.toolbar,
             items=menu_items,
             width_mult=2,
-            # pos_hint={'x':1,'y':1}
-            position="bottom",
-        )
+            position="bottom",)
+        
         self.events=self.get_events()
         for event in self.events:
             print(event[1],event[2],event[3])
-            self.ids.list.add_widget(Factory.Event(text=f'[size=32][b]{event[1]}[/b][/size] {event[2]}'))
+            self.ids.list.add_widget(Factory.Event(text=f'[size=28][b]{event[1]}[/b][/size] {event[2]}'))
 
 
     def get_events(self):

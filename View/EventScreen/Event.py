@@ -30,7 +30,7 @@ class EventScreenView(Screen):
         except Exception as e:
             print(e.with_traceback())
             
-        MDApp.get_running_app().manager_screen.switch_screen('main')
+        MDApp.get_running_app().manager_screen.refresh('main')
 
 
 # TODO

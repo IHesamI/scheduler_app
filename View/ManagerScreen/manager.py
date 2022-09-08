@@ -9,6 +9,12 @@ class ManagerScreen(ScreenManager):
         super().__init__(**kwargs)
         self.app=MDApp.get_running_app()
         self.transition=NoTransition()
+        
+    def refresh(self,screen_name):
+        self._screen_names.remove(screen_name)
+        self.remove_widget(self.get_screen(screen_name))
+        self.switch_screen(screen_name)        
+        print(self._get_screen_names())
 
     def create_screen(self,name_screen,*args):
         if name_screen not in self._screen_names:
